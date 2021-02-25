@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: service.proto
 
-package proto
+package serverservice
 
 import (
 	context "context"
