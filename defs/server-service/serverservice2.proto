@@ -1,5 +1,5 @@
 syntax = "proto3";
-package serverservice;
+package serverservice2;
 
 message Request {
     int64 a = 1;
