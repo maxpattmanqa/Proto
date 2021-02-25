@@ -49,15 +49,14 @@ func (c *addServiceClient) Multiply(ctx context.Context, in *Request, opts ...gr
 }
 
 // AddServiceServer is the server API for AddService service.
-// All implementations must embed UnimplementedAddServiceServer
+// All implementations should embed UnimplementedAddServiceServer
 // for forward compatibility
 type AddServiceServer interface {
 	Add(context.Context, *Request) (*Response, error)
 	Multiply(context.Context, *Request) (*Response, error)
-	mustEmbedUnimplementedAddServiceServer()
 }
 
-// UnimplementedAddServiceServer must be embedded to have forward compatible implementations.
+// UnimplementedAddServiceServer should be embedded to have forward compatible implementations.
 type UnimplementedAddServiceServer struct {
 }
 
@@ -67,7 +66,6 @@ func (UnimplementedAddServiceServer) Add(context.Context, *Request) (*Response, 
 func (UnimplementedAddServiceServer) Multiply(context.Context, *Request) (*Response, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Multiply not implemented")
 }
-func (UnimplementedAddServiceServer) mustEmbedUnimplementedAddServiceServer() {}
 
 // UnsafeAddServiceServer may be embedded to opt out of forward compatibility for this service.
 // Use of this interface is not recommended, as added methods to AddServiceServer will
